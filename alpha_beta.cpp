@@ -77,17 +77,20 @@ std::vector<long> minimax(board currentBoard, int depth, bool isMaximizingPlayer
             return {find_score(currentBoard.alpha_beta_score(), x1, x2, x3)};
         }
 
-      //  std::sort(moves.begin(), moves.end(), [&](const int& move1, const int& move2) {
-      //      board temp_board1 = currentBoard;
-      //      temp_board1.insert(move1); // Or temp_board1.insert(move1); based on the context
-      //      long score1 = find_score(temp_board1.alpha_beta_score(), x1, x2, x3);
-
-      //      board temp_board2 = currentBoard;
-      //      temp_board2.insert(move2); // Or temp_board2.insert(move2); based on the context
-      //      long score2 = find_score(temp_board2.alpha_beta_score(), x1, x2, x3);
-
-      //      return score1 < score2; // For minimizing player, lower scores first
-      //  });
+//        std::sort(moves.begin(), moves.end(), [&](const int& move1, const int& move2) {
+//            board temp_board1 = currentBoard;
+//            temp_board1.insert(move1); // Or temp_board1.insert(move1); based on the context
+//            long score1 = find_score(temp_board1.alpha_beta_score(), x1, x2, x3);
+//
+//            board temp_board2 = currentBoard;
+//            temp_board2.insert(move2); // Or temp_board2.insert(move2); based on the context
+//            long score2 = find_score(temp_board2.alpha_beta_score(), x1, x2, x3);
+//
+//            return score1 > score2; // For minimizing player, lower scores first
+//        });
+        if(moves.size() > 5){
+            moves.resize(5);
+        }
 
         for (int move : moves){
             board new_board = currentBoard;

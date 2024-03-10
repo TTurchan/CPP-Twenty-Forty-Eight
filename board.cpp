@@ -1,12 +1,13 @@
 #include "board.h"
+#include <algorithm>
 #include <vector>
 
 
 std::vector<long> board::alpha_beta_score(){
     int max_val=0;
-    int row_collapses;
+    int row_collapses=0;
     int zeros;
-    int col_collapses;
+    int col_collapses=0;
     int top_row_total;
     int weighted_snake_distance;
     for (int i = 0; i < rows; i++){
@@ -49,6 +50,7 @@ std::vector<long> board::alpha_beta_score(){
             }
         }
     }
+    int old_zeros = zeros;
     std::vector<long> result = {zeros, top_row_total, weighted_snake_distance, max_val};
     return result;
 }
